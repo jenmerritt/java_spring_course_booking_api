@@ -32,4 +32,9 @@ public class CourseController {
         return courseRepository.findByRating(value);
     }
 
+    @GetMapping(value = "/customer/{name}")
+    public List<Course> findByBookingsCustomerName(@PathVariable String name){
+        return courseRepository.findByBookingsCustomerName(name);
+    }
+
 }
