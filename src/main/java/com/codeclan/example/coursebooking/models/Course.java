@@ -1,6 +1,8 @@
 package com.codeclan.example.coursebooking.models;
 
 import com.codeclan.example.coursebooking.enums.Rating;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class Course {
     @Column(name = "rating")
     private Rating rating;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "course")
     private List<Booking> bookings;
 
