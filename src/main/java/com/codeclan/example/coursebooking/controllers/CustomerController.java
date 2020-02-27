@@ -5,10 +5,7 @@ import com.codeclan.example.coursebooking.repositories.BookingRepository.Booking
 import com.codeclan.example.coursebooking.repositories.CourseRepository.CourseRepository;
 import com.codeclan.example.coursebooking.repositories.CustomerRepository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +25,10 @@ public class CustomerController {
     @GetMapping(value = "/course/{course}")
     public List<Customer> findByBookingsCourseTitle(@PathVariable String course){
         return customerRepository.findByBookingsCourseTitle(course);
+    }
+
+    @GetMapping(value = "/search/townandtitle")
+    public List<Customer> findByTownAndBookingsCourseTitle(@RequestParam String town, String title){
+        return customerRepository.findByTownAndBookingsCourseTitle(town, title);
     }
 }
