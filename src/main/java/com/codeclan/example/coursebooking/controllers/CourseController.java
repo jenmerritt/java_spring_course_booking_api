@@ -37,4 +37,10 @@ public class CourseController {
         return courseRepository.findByBookingsCustomerName(name);
     }
 
+    @GetMapping(value = "/custom/rating/{ratingValue}")
+    public List<Course> getAllCoursesByRating(@PathVariable int ratingValue){
+        Rating value = Rating.values()[ratingValue];
+        return courseRepository.getAllCoursesByRating(value);
+    }
+
 }

@@ -31,4 +31,19 @@ public class CustomerController {
     public List<Customer> findByTownAndBookingsCourseTitle(@RequestParam String town, String title){
         return customerRepository.findByTownAndBookingsCourseTitle(town, title);
     }
+
+    @GetMapping(value = "/search/agetowntitle")
+    public List<Customer> findByAgeGreaterThanAndTownAndBookingsCourseTitle(@RequestParam int age, String town, String title) {
+        return customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseTitle(age, town, title);
+    }
+
+    @GetMapping(value="/custom/course/{course}")
+    public List<Customer> getCustomersForCourse(@PathVariable String course){
+        return customerRepository.getCustomersForCourse(course);
+    }
+
+    @GetMapping(value="/custom/townandcourse")
+    public List<Customer> getCustomersInTownForCourse(@RequestParam String town, String course){
+        return customerRepository.getCustomersInTownForCourse(town, course);
+    }
 }

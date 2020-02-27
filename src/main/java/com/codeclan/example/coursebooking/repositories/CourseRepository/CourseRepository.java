@@ -9,4 +9,5 @@ import java.util.List;
 public interface CourseRepository extends JpaRepository<Course, Long>, CourseRepositoryCustom {
     List<Course> findByRating(Rating rating);
     List<Course> findByBookingsCustomerName(String name);
+    List<Course> getAllCoursesByRating(Rating rating);
 }
